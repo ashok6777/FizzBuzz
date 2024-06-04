@@ -1,0 +1,81 @@
+@{
+    ViewBag.Title = "FizzBuzz Processor";
+}
+
+<h2>FizzBuzz Processor</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" id="errorMessage">@ViewBag.Error</div>
+}
+
+<form id="fizzBuzzForm" method="post" asp-action="Index">
+    <div class="form-group position-relative">
+        <label class="value-label-margin" for="values">Enter values (comma separated):</label>
+        <input type="text" class="form-control" id="values" name="values" value="@ViewBag.Values">
+        <button type="button" class="clear-btn" id="clearBtn">&times;</button>
+        <div id="errorText" class="text-danger"></div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-margin">Submit</button>
+</form>
+
+@if (ViewBag.Results != null)
+{
+    <h3>Results:</h3>
+    <ul id="resultsList">
+        @foreach (var result in ViewBag.Results)
+        {
+            <li>@result</li>
+        }
+    </ul>
+}
+
+<style>
+    .position-relative {
+        position: relative;
+    }
+
+    .clear-btn {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        color: #aaa;
+    }
+
+    .clear-btn:hover {
+        color: #000;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .btn-margin {
+        margin-top: 10px;
+    }
+
+    .value-label-margin {
+        margin-bottom: 5px;
+    }
+</style>
+
+<script src="~/js/validation.js"></script>
+<script>
+    // Function to clear the input field
+    function clearInputField() {
+        var input = document.getElementById('values');
+        var resultsList = document.getElementById('resultsList');
+
+        if (input != null) { input.value = ''; }
+
+        while (resultsList != null && resultsList.firstChild) {
+            resultsList.removeChild(resultsList.firstChild);
+        }
+    }
+</script>
