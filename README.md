@@ -17,3 +17,4 @@ Run the following command
 
 If there is a conflict with the port with dotnet run command, please change the port in FizzBuzzMVCApp/Properties/launchSettings.json -> section profiles -> http
 
+Please open the browser and use http://localhost:<given port>/ -> will take to default FizzBizz processor page.
