@@ -21,3 +21,4 @@ Please open the browser and use http://localhost:given_port_number/ -> will take
 
 Working screenshot can be found with file name FizzBizz_Working.png in the repo
 
+Note: This has been developed with ASP.NET MVC. UI can be be developed independently using angular or react or anyother javascript framework.
